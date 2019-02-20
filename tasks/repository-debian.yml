@@ -6,6 +6,8 @@
   loop: "{{ rspamd_repo_dep }}"
   loop_control:
     loop_var: package
+  retries: 3
+  delay: 2
   when: rspamd_repo_state
 
 - name: "importing rspamd gpg key"
@@ -28,7 +30,7 @@
 - name: "update debian repository cache"
   apt:
     update_cache: true
-  when: rspamd_repo_changed.changed
+  when: rspamd_repo_changed.changed   # noqa 503
 
 - name: "remove nginx repository"
   file:

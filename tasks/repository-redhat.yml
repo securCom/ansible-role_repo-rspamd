@@ -4,7 +4,6 @@
     key: "{{ rspamd_repo_key }}"
   when: rspamd_repo_state
 
-
 - name: "add rspamd repository"
   template:
     src: "repository-redhat.j2"
