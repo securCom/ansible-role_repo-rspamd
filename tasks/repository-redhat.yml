@@ -1,0 +1,21 @@
+---
+- name: add rspamd rpm key
+  rpm_key:
+    key: "{{ rspamd_repo_key }}"
+  when: rspamd_repo_state
+
+
+- name: "add rspamd repository"
+  template:
+    src: "repository-redhat.j2"
+    dest: /etc/yum.repos.d/rspamd.repo
+    owner: root
+    group: root
+    mode: 0644
+  when: rspamd_repo_state
+
+- name: "remove rspamd repository"
+  file:
+    path: /etc/yum.repos.d/rspamd.repo
+    state: absent
+  when: not rspamd_repo_state
