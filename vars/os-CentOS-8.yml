@@ -1,0 +1,4 @@
+---
+
+rspamd_repo_supported: false
+rspamd_repo_key: https://rspamd.com/rpm-stable/gpg.key
