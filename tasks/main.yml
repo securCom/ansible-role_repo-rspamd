@@ -13,11 +13,11 @@
   import_tasks: repository-redhat.yml
   when: rspamd_repo_supported and ansible_distribution in ('CentOS', 'RedHat')
   tags:
-    - nginx
+    - rspamd
 
 
 - name: include repository tasks
   import_tasks: repository-debian.yml
   when: rspamd_repo_supported and ansible_distribution in ('Debian', 'Ubuntu')
   tags:
-    - nginx
+    - rspamd
